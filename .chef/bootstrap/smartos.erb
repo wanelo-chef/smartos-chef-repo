@@ -1,0 +1,45 @@
+# Joyent SmartOS Base64
+# run knife bootstrap <hostname> -d smartos-base64
+
+bash -c '
+
+if [[ ! -z $SKIP_NODE_CHECK && `psrinfo | wc -l` -lt 32 ]]; then
+  echo "Compute node for this zone is too old.
+You should run:
+knife joyent server delete `zonename`
+Exiting..."
+  exit 1
+fi
+
+if [ ! -f /opt/local/bin/chef-client ]; then
+  pkgin -y -f update
+  pkgin -y install gcc47 gcc47-runtime scmgit-base scmgit-docs gmake ruby193-base ruby193-yajl ruby193-nokogiri ruby193-readline pkg-config-0.25nb1 smtools binutils
+  gem update --system
+  gem install --no-ri --no-rdoc ohai
+  gem install --no-ri --no-rdoc chef -v "10.24.0"
+  gem install --no-ri --no-rdoc rb-readline
+  gem install --no-ri --no-rdoc ipaddr_extensions
+  cd /opt/local/bin && ln -s gmake make
+fi
+
+mkdir -p /etc/chef
+
+(
+cat <<'EOP'
+<%= validation_key %>
+EOP
+) > /etc/chef/validation.pem
+
+(
+cat <<'EOP'
+<%= config_content %>
+EOP
+) > /etc/chef/client.rb
+
+(
+cat <<'EOP'
+<%= { "run_list" => @run_list }.to_json %>
+EOP
+) > /etc/chef/first-boot.json
+
+<%= start_chef %>'

@@ -1,0 +1,10 @@
+{
+  "id": "user",
+  "comment": "User Name",
+  "uid": 1010,
+  "groups": [ "sysadmin" ],
+  "ssh_keys": [
+    "ssh-rsa rsa-key"
+  ],
+  "shell": "/bin/bash"
+}
