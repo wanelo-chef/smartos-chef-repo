@@ -62,7 +62,21 @@ It installs an SMF named after the version installed.
 
 * 9.2.4 => postgres924
 
-Binaries and libraries are installed in /opt/local/postgres-version
+Binaries and libraries are installed in `/opt/local/postgres-VERSION`
+
+```bash
+knife joyent server create \
+  --image cf7e2f40-9276-11e2-af9a-0bad2233fb0b \
+  --flavor 'Small 1GB' \
+  -N node.name \
+  -d smartos \
+  -E production \
+  -r 'role[base],role[postgres-server]'
+```
+
+In order to set up access control, configure 'connections' and
+'replication' in the environment file. This info goes in pg_hba.conf
+to allow clients to connect by IP or subnet.
 
 ## License
 
