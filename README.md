@@ -35,6 +35,15 @@ knife joyent server create \
 knife joyent server list
 ```
 
+## Deleting servers
+
+```bash
+knife joyent server delete <server_id>
+```
+
+Where server_id is the UUID of the smartmachine. In order to obtain
+the server_id, use `knife joyent server list` or run `zonename` on
+the machine. 
 
 ## Other server types
 
