@@ -1,4 +1,5 @@
-cookbook 'rbac', :locked_version => '0.0.3'
-cookbook 'resource-control', :locked_version => '0.0.1'
-cookbook 'smf', :locked_version => '0.6.9'
 cookbook 'users', :git => 'git://github.com/modcloth-cookbooks/users.git', :ref => 'COOK-2156'
+cookbook 'postgres', :git => 'https://github.com/wanelo-chef/postgres.git', :ref => 'bb68f2db126560f7bdd2cb59eb705ac3b568bb28'
+cookbook 'resource-control', :locked_version => '0.0.1'
+cookbook 'rbac', :locked_version => '0.0.3'
+cookbook 'smf', :locked_version => '0.6.9'
