@@ -78,6 +78,9 @@ In order to set up access control, configure 'connections' and
 'replication' in the environment file. This info goes in pg_hba.conf
 to allow clients to connect by IP or subnet.
 
+The `postgres-client` role will install client libraries. By default
+they will be installed via package.
+
 ## License
 
 Copyright 2013 Eric Saxby
