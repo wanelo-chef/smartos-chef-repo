@@ -3,7 +3,6 @@ description 'Production environment'
 
 default_attributes(
   'postgres' => {
-    'version' => '9.2.4',
     'connections' => {
       # Only trust IPs on your internal subnet
       '127.0.0.1/0' => 'trust',

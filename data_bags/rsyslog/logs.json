@@ -1,0 +1,12 @@
+{
+  "id":"logs",
+  "logs":[
+    {
+      "pri":"local0.*",
+      "file":"/var/log/postgres/postgres.log",
+      "owner": "root",
+      "mode": "0700"
+    }
+  ]
+}
+
