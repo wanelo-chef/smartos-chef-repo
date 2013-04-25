@@ -1,3 +1,4 @@
 cookbook 'rbac', :locked_version => '0.0.3'
 cookbook 'resource-control', :locked_version => '0.0.1'
 cookbook 'smf', :locked_version => '0.6.9'
+cookbook 'users', :git => 'git://github.com/modcloth-cookbooks/users.git', :ref => 'COOK-2156'
